@@ -1,9 +1,13 @@
 <?xml version="1.0"?>
 <ruleset name="App">
-    <config name="installed_paths" value="../../cakephp/cakephp-codesniffer"/>
+
+    <!-- DO NOT set installed_paths when using dealerdirect/phpcodesniffer-composer-installer -->
+    <!-- It auto-registers standards (CakePHP, Slevomat, etc.) from vendor/ -->
 
     <rule ref="CakePHP"/>
-    <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint.MissingNativeTypeHint">
+
+    <!-- Use the actual sniff, then exclude Controllers -->
+    <rule ref="SlevomatCodingStandard.TypeHints.ReturnTypeHint">
         <exclude-pattern>*/src/Controller/*</exclude-pattern>
     </rule>
 
